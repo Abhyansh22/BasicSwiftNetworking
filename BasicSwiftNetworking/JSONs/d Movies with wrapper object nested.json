@@ -1,0 +1,19 @@
+{
+    "movies" : [
+        {
+            "title" : "Avatar",
+            "details" : {
+                "director" : "James Cameron",
+                "rating" : 4.8
+            }
+        },
+        {
+            "title" : "The Notebook",
+            "details" : {
+                "director" : "Nick Cassavetes",
+                "rating" : 4.4
+            }
+        }
+    ]
+}
+

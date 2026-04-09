@@ -1,0 +1,19 @@
+{
+    "movies" : [
+        {
+            "title" : "Avatar",
+            "director" : "James Cameron",
+            "rating" : 4.8
+        },
+        {
+            "title" : "Inception",
+            "director" : "Christopher Nolan",
+            "rating" : 4.7
+        },
+        {
+            "title" : "Oppenheimer",
+            "director" : "James Cameron",
+            "rating" : 4.6
+        }
+    ]
+}
