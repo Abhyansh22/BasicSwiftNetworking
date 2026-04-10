@@ -1,0 +1,18 @@
+//
+//  PhotoInfoView.swift
+//  BasicSwiftNetworking
+//
+//  Created by GU on 10/04/26.
+//
+
+import SwiftUI
+
+struct PhotoInfoView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+#Preview {
+    PhotoInfoView()
+}
