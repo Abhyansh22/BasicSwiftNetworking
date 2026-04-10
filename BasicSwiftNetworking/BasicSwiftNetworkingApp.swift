@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct BasicSwiftNetworkingApp: App {
+    var photoInfoViewModel = PhotoIbfoViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PhotoInfoView()
+                .environment(photoInfoViewModel)
         }
     }
 }
