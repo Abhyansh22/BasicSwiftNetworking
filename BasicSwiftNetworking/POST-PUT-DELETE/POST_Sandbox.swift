@@ -126,6 +126,46 @@ import Playgrounds
         return updatedTask
     }
     
+    func deleteTask(id: Int) async throws {
+        
+//        var newTask = ToDoTask(id: nil, title: title, dueDate: dueDate, isComplete: isComplete)
+//        var taskToPut = try JSONEncoder().encode(newTask)
+        
+        let updateTaskURL = baseURLString + "/\(id)"
+        let url = URL(string: updateTaskURL)!
+        var myURLRequest = URLRequest(url: url)
+        
+        //type of request
+        myURLRequest.httpMethod = "DELETE"
+        
+        //type of http body
+//        myURLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+//        var dictionaryofData: [String : Any] = ["title":title,
+//                                "dueDate": dueDate,
+//                                "isComplete": isComplete]
+        
+        
+        
+//        var jsonDataBody = try JSONSerialization.data(withJSONObject: dictionaryofData)
+        
+        //myURLRequest.httpBody = jsonDataBody
+        
+        var (data, response) = try await URLSession.shared.data(for: myURLRequest)
+        print(response)
+        
+        guard let httpResponse = response as? HTTPURLResponse, (httpResponse.statusCode == 204 /*|| httpResponse.statusCode == 400*/) else{
+            print("Error creating to do task")
+            throw URLError(.badServerResponse)
+        }
+        var deletedTask = try JSONDecoder().decode(ToDoTask.self, from: data)
+        print("Task deleted with id: \(deletedTask.id)")
+        
+        //return updatedTask
+    }
+    
+    
+    
     
     //MARK: return all tasks
 //    Task{
@@ -162,10 +202,20 @@ import Playgrounds
 //    }
     
     //MARK: update existing task
+//    Task{
+//        do{
+//            var updatedTask =  try await putUpdateTask(id: 3, title: "Finish Swift homework", dueDate: "2026-03-14", isComplete: false)
+//            print(updatedTask)
+//        }catch{
+//            print("Error thrown: \(error.localizedDescription)")
+//        }
+//    }
+    
+    //MARK: deleteTask
     Task{
         do{
-            var updatedTask =  try await putUpdateTask(id: 3, title: "Finish Swift homework", dueDate: "2026-03-14", isComplete: false)
-            print(updatedTask)
+            try await deleteTask(id: 2)
+            print("Task Deleted")
         }catch{
             print("Error thrown: \(error.localizedDescription)")
         }
