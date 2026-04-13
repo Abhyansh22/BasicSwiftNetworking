@@ -12,8 +12,8 @@ struct BasicSwiftNetworkingApp: App {
     var photoInfoViewModel = PhotoIbfoViewModel()
     var body: some Scene {
         WindowGroup {
-            PhotoInfoView()
-                .environment(photoInfoViewModel)
+            RestaurantTabView()
+//                .environment(photoInfoViewModel)
         }
     }
 }

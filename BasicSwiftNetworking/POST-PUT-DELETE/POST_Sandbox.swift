@@ -81,7 +81,7 @@ import Playgrounds
             throw URLError(.badServerResponse)
         }
         var newTask = try JSONDecoder().decode(ToDoTask.self, from: data)
-        print("New task created with id: \(newTask.id)")
+        print("New task created with id: \(newTask.id, default: "Kuch nahi aaya")")
         
         return newTask
     }
@@ -121,7 +121,7 @@ import Playgrounds
             throw URLError(.badServerResponse)
         }
         var updatedTask = try JSONDecoder().decode(ToDoTask.self, from: data)
-        print("Task updated with id: \(updatedTask.id)")
+        print("Task updated with id: \(updatedTask.id, default: "Kuch nahi aaya")")
         
         return updatedTask
     }
@@ -159,7 +159,7 @@ import Playgrounds
             throw URLError(.badServerResponse)
         }
         var deletedTask = try JSONDecoder().decode(ToDoTask.self, from: data)
-        print("Task deleted with id: \(deletedTask.id)")
+        print("Task deleted with id: \(deletedTask.id, default: "Kuch nahi aaya")")
         
         //return updatedTask
     }
